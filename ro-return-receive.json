@@ -1,0 +1,953 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "ro-return-receive",
+        "version": "1.0.0",
+        "description": "return order shipment"
+    },
+    "paths": {
+        "/roReceive/shipment": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReturnShipment"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReturnShipment"
+                                }
+                            }
+                        },
+                        "description": "RO Shipment Create"
+                    }
+                },
+                "operationId": "create"
+            }
+        },
+        "/roReceive/shipment/receivePackage": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReturnPackageReceive"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReturnPackageReceive"
+                                }
+                            }
+                        },
+                        "description": "RO Shipment Create"
+                    }
+                },
+                "operationId": "receive",
+                "summary": "receive"
+            }
+        },
+        "/roReceive/shipment/{tenantCode}/{organizationCode}/{returnShipmentNumber}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReturnShipment"
+                                }
+                            }
+                        },
+                        "description": "Return Shipment"
+                    }
+                },
+                "operationId": "getReturnShipment",
+                "summary": "getReturnShipment"
+            },
+            "parameters": [
+                {
+                    "name": "tenantCode",
+                    "description": "tenant Code",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                },
+                {
+                    "name": "organizationCode",
+                    "description": "organization code",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                },
+                {
+                    "name": "returnShipmentNumber",
+                    "description": "return shipment number",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        }
+    },
+    "components": {
+        "schemas": {
+            "ReturnShipment": {
+                "title": "Root Type for ReturnShipment",
+                "description": "Return Shipment",
+                "required": [
+                    "return_shipment_number"
+                ],
+                "type": "object",
+                "properties": {
+                    "return_shipment_number": {
+                        "type": "string"
+                    },
+                    "return_order_number": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "return_shipment_dates": {
+                        "$ref": "#/components/schemas/ReturnShipmentDates",
+                        "description": "return shipment dates"
+                    },
+                    "pickup_address": {
+                        "$ref": "#/components/schemas/PickupAddress",
+                        "description": "pickup address"
+                    },
+                    "delivery_address": {
+                        "$ref": "#/components/schemas/DeliveryAddress",
+                        "description": "delivery address"
+                    },
+                    "return_order_line_detail": {
+                        "description": "return order line detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnOrderLineDetail"
+                        }
+                    },
+                    "return_package": {
+                        "description": "return package",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnPackage"
+                        }
+                    },
+                    "carrier": {
+                        "description": "carrier",
+                        "type": "string"
+                    },
+                    "customer_order_number": {
+                        "description": "customer_order_number",
+                        "type": "string"
+                    },
+                    "tenant_code": {
+                        "description": "tenant_code",
+                        "type": "string"
+                    },
+                    "ship_node": {
+                        "description": "ship_node",
+                        "type": "string"
+                    },
+                    "receive_node": {
+                        "description": "receive_node",
+                        "type": "string"
+                    },
+                    "return_type": {
+                        "description": "return type",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "return_shipment_number": "some text",
+                    "return_order_number": "some text",
+                    "status": "some text",
+                    "return_shipment_dates": {
+                        "expected_arrival_date": "2018-01-17",
+                        "collection_date": "2018-01-17",
+                        "return_created_date": "2018-01-17"
+                    },
+                    "pickup_address": {
+                        "first_name": "some text",
+                        "last_name": "some text",
+                        "contact_no": "some text",
+                        "contact_email": "some text",
+                        "address_line1": "some text",
+                        "address_line2": "some text",
+                        "address_line3": "some text",
+                        "address_line4": "some text",
+                        "city": "some text",
+                        "state": "some text",
+                        "country": "some text",
+                        "postal_code": "some text"
+                    },
+                    "delivery_address": {
+                        "first_name": "some text",
+                        "last_name": "some text",
+                        "contact_no": "some text",
+                        "contact_email": "some text",
+                        "address_line1": "some text",
+                        "address_line2": "some text",
+                        "address_line3": "some text",
+                        "address_line4": "some text",
+                        "city": "some text",
+                        "state": "some text",
+                        "country": "some text",
+                        "postal_code": "some text"
+                    },
+                    "return_order_line_detail": [
+                        {
+                            "return_order_line_id": "some text",
+                            "ext_sales_order_line_id": "some text",
+                            "ext_sales_order_number": "some text",
+                            "product_code": "some text",
+                            "product_name": "some text",
+                            "quantity_to_return": "some text",
+                            "quantity_returned": "some text",
+                            "quantity_sold": "some text",
+                            "return_reason": "some text",
+                            "line_refund_amount": "some text",
+                            "lineQty": [
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text"
+                                },
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text"
+                                }
+                            ]
+                        },
+                        {
+                            "return_order_line_id": "some text",
+                            "ext_sales_order_line_id": "some text",
+                            "ext_sales_order_number": "some text",
+                            "product_code": "some text",
+                            "product_name": "some text",
+                            "quantity_to_return": "some text",
+                            "quantity_returned": "some text",
+                            "quantity_sold": "some text",
+                            "return_reason": "some text",
+                            "line_refund_amount": "some text",
+                            "lineQty": [
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text"
+                                },
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text"
+                                }
+                            ]
+                        }
+                    ],
+                    "return_package": [
+                        {
+                            "package_id": "some text",
+                            "carrier": "some text",
+                            "weight": "some text",
+                            "uom": "some text",
+                            "tracking_number": "some text",
+                            "shipping_pdf_url": "some text",
+                            "shipping_track_url": "some text",
+                            "shipping_cost": "some text",
+                            "package_status": "some text",
+                            "package_contains": "some text",
+                            "package_value": "some text",
+                            "inner_package": [
+                                {
+                                    "package_id": "some text",
+                                    "tracking_number": "some text"
+                                },
+                                {
+                                    "package_id": "some text",
+                                    "tracking_number": "some text"
+                                }
+                            ],
+                            "package_detail": [
+                                {
+                                    "package_line_id": "some text",
+                                    "no_of_pieces": "some text",
+                                    "lineQty": [
+                                        {
+                                            "reference": "some text",
+                                            "status": "some text",
+                                            "return_reason": "some text"
+                                        },
+                                        {
+                                            "reference": "some text",
+                                            "status": "some text",
+                                            "return_reason": "some text"
+                                        }
+                                    ],
+                                    "dimension": {
+                                        "weight": "some text",
+                                        "length": "some text",
+                                        "height": "some text",
+                                        "width": "some text"
+                                    }
+                                },
+                                {
+                                    "package_line_id": "some text",
+                                    "no_of_pieces": "some text",
+                                    "lineQty": [
+                                        {
+                                            "reference": "some text",
+                                            "status": "some text",
+                                            "return_reason": "some text"
+                                        },
+                                        {
+                                            "reference": "some text",
+                                            "status": "some text",
+                                            "return_reason": "some text"
+                                        }
+                                    ],
+                                    "dimension": {
+                                        "weight": "some text",
+                                        "length": "some text",
+                                        "height": "some text",
+                                        "width": "some text"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "package_id": "some text",
+                            "carrier": "some text",
+                            "weight": "some text",
+                            "uom": "some text",
+                            "tracking_number": "some text",
+                            "shipping_pdf_url": "some text",
+                            "shipping_track_url": "some text",
+                            "shipping_cost": "some text",
+                            "package_status": "some text",
+                            "package_contains": "some text",
+                            "package_value": "some text",
+                            "inner_package": [
+                                {
+                                    "package_id": "some text",
+                                    "tracking_number": "some text"
+                                },
+                                {
+                                    "package_id": "some text",
+                                    "tracking_number": "some text"
+                                }
+                            ],
+                            "package_detail": [
+                                {
+                                    "package_line_id": "some text",
+                                    "no_of_pieces": "some text",
+                                    "lineQty": [
+                                        {
+                                            "reference": "some text",
+                                            "status": "some text",
+                                            "return_reason": "some text"
+                                        },
+                                        {
+                                            "reference": "some text",
+                                            "status": "some text",
+                                            "return_reason": "some text"
+                                        }
+                                    ],
+                                    "dimension": {
+                                        "weight": "some text",
+                                        "length": "some text",
+                                        "height": "some text",
+                                        "width": "some text"
+                                    }
+                                },
+                                {
+                                    "package_line_id": "some text",
+                                    "no_of_pieces": "some text",
+                                    "lineQty": [
+                                        {
+                                            "reference": "some text",
+                                            "status": "some text",
+                                            "return_reason": "some text"
+                                        },
+                                        {
+                                            "reference": "some text",
+                                            "status": "some text",
+                                            "return_reason": "some text"
+                                        }
+                                    ],
+                                    "dimension": {
+                                        "weight": "some text",
+                                        "length": "some text",
+                                        "height": "some text",
+                                        "width": "some text"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "ReturnShipmentDates": {
+                "title": "Root Type for ReturnShipmentDates",
+                "description": "Return Shipment Dates",
+                "type": "object",
+                "properties": {
+                    "expected_arrival_date": {
+                        "type": "string"
+                    },
+                    "collection_date": {
+                        "type": "string"
+                    },
+                    "return_created_date": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "expected_arrival_date": "2019-06-29",
+                    "collection_date": "2019-06-29",
+                    "return_created_date": "2019-06-29"
+                }
+            },
+            "PickupAddress": {
+                "title": "Root Type for PickupAddress",
+                "description": "Pickup Address",
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "contact_no": {
+                        "type": "string"
+                    },
+                    "contact_email": {
+                        "type": "string"
+                    },
+                    "address_line1": {
+                        "type": "string"
+                    },
+                    "address_line2": {
+                        "type": "string"
+                    },
+                    "address_line3": {
+                        "type": "string"
+                    },
+                    "address_line4": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "postal_code": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "first_name": "Adelle",
+                    "last_name": "Lubowitz",
+                    "contact_no": "98954545485454",
+                    "contact_email": "jermaine.mayer@gmail.com",
+                    "address_line1": "016 Bernadine Junction",
+                    "address_line2": "016 Bernadine Junction",
+                    "address_line3": "016 Bernadine Junction",
+                    "address_line4": "016 Bernadine Junction",
+                    "city": "Port Ericamouth",
+                    "state": "Nebraska",
+                    "country": "Czech Republic",
+                    "postal_code": "18445"
+                }
+            },
+            "DeliveryAddress": {
+                "title": "Root Type for DeliveryAddress",
+                "description": "Delivery Address",
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "contact_no": {
+                        "type": "string"
+                    },
+                    "contact_email": {
+                        "type": "string"
+                    },
+                    "address_line1": {
+                        "type": "string"
+                    },
+                    "address_line2": {
+                        "type": "string"
+                    },
+                    "address_line3": {
+                        "type": "string"
+                    },
+                    "address_line4": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "postal_code": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "first_name": "Adelle",
+                    "last_name": "Lubowitz",
+                    "contact_no": "98954545485454",
+                    "contact_email": "jermaine.mayer@gmail.com",
+                    "address_line1": "016 Bernadine Junction",
+                    "address_line2": "016 Bernadine Junction",
+                    "address_line3": "016 Bernadine Junction",
+                    "address_line4": "016 Bernadine Junction",
+                    "city": "Port Ericamouth",
+                    "state": "Nebraska",
+                    "country": "Czech Republic",
+                    "postal_code": "18445"
+                }
+            },
+            "ReturnOrderLineDetail": {
+                "title": "Root Type for ReturnOrderLineDetail",
+                "description": "Return OrderLine Detail",
+                "type": "object",
+                "properties": {
+                    "return_order_line_id": {
+                        "type": "string"
+                    },
+                    "ext_sales_order_line_id": {
+                        "type": "string"
+                    },
+                    "ext_sales_order_number": {
+                        "type": "string"
+                    },
+                    "product_code": {
+                        "type": "string"
+                    },
+                    "product_name": {
+                        "type": "string"
+                    },
+                    "quantity_to_return": {
+                        "type": "integer"
+                    },
+                    "quantity_returned": {
+                        "type": "integer"
+                    },
+                    "quantity_sold": {
+                        "type": "integer"
+                    },
+                    "return_reason": {
+                        "type": "string"
+                    },
+                    "line_refund_amount": {
+                        "type": "string"
+                    },
+                    "line_qty": {
+                        "description": "line qty",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnOrderLineQty"
+                        }
+                    },
+                    "ext_return_order_line_id": {
+                        "description": "ext return order line_id",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "return_order_line_id": "1",
+                    "ext_sales_order_line_id": "1",
+                    "ext_sales_order_number": "ONUM-11-2524665",
+                    "product_code": "44646846546496",
+                    "product_name": "FANATICS AUTHENTIC BRIAN HARTLINE CLEVELAND BROWNS GAME-USED #83 JERSEY VS SAN FRANCISCO 49ERS ON DECEMBER 13, 2015",
+                    "quantity_to_return": "2",
+                    "quantity_returned": "0",
+                    "quantity_sold": "3",
+                    "return_reason": "Received wrong item",
+                    "line_refund_amount": ""
+                }
+            },
+            "ReturnOrderLineQty": {
+                "title": "Root Type for ReturnOrderLineQty",
+                "description": "Return OrderLine Qty",
+                "type": "object",
+                "properties": {
+                    "reference": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "return_reason": {
+                        "type": "string"
+                    },
+                    "disposition_code": {
+                        "description": "disposition code",
+                        "type": "string"
+                    },
+                    "action": {
+                        "description": "follow up action for this disposition code",
+                        "type": "string"
+                    },
+                    "reason_code": {
+                        "description": "reason code",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "reference": "ADE565fG",
+                    "status": "RETURN_CREATED",
+                    "return_reason": "Received wrong item"
+                }
+            },
+            "ReturnPackage": {
+                "title": "Root Type for ReturnPackage",
+                "description": "Return Package",
+                "required": [
+                ],
+                "type": "object",
+                "properties": {
+                    "package_id": {
+                        "type": "string"
+                    },
+                    "weight": {
+                        "type": "string"
+                    },
+                    "uom": {
+                        "type": "string"
+                    },
+                    "tracking_number": {
+                        "type": "string"
+                    },
+                    "shipping_pdf_url": {
+                        "type": "string"
+                    },
+                    "shipping_track_url": {
+                        "type": "string"
+                    },
+                    "shipping_cost": {
+                        "type": "string"
+                    },
+                    "package_status": {
+                        "description": "package status",
+                        "type": "string"
+                    },
+                    "package_contains": {
+                        "description": "package contains",
+                        "type": "string"
+                    },
+                    "package_value": {
+                        "description": "package value",
+                        "type": "string"
+                    },
+                    "inner_package": {
+                        "description": "inner package",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnInnerPackage"
+                        }
+                    },
+                    "dimension": {
+                        "$ref": "#/components/schemas/ReturnPackageDimension",
+                        "description": "dimension"
+                    },
+                    "package_detail": {
+                        "description": "package_detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnPackageDetail"
+                        }
+                    }
+                },
+                "example": {
+                    "package_id": "some text",
+                    "weight": "some text",
+                    "uom": "some text",
+                    "tracking_number": "some text",
+                    "shipping_pdf_url": "some text",
+                    "shipping_track_url": "some text",
+                    "shipping_cost": "some text",
+                    "package_status": "some text",
+                    "package_contains": "some text",
+                    "package_value": "some text",
+                    "inner_package": [
+                        {
+                            "package_id": "some text",
+                            "tracking_number": "some text"
+                        },
+                        {
+                            "package_id": "some text",
+                            "tracking_number": "some text"
+                        }
+                    ],
+                    "package_detail": [
+                        {
+                            "package_line_id": "some text",
+                            "no_of_pieces": 24,
+                            "lineQty": [
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text"
+                                },
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text"
+                                }
+                            ]
+                        },
+                        {
+                            "package_line_id": "some text",
+                            "no_of_pieces": 71,
+                            "lineQty": [
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text"
+                                },
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text"
+                                }
+                            ]
+                        }
+                    ],
+                    "dimension": {
+                        "weight": "some text",
+                        "length": "some text",
+                        "height": "some text",
+                        "width": "some text"
+                    }
+                }
+            },
+            "ReturnPackageDetail": {
+                "title": "Root Type for ReturnPackageDetail",
+                "description": "Return Package Detail",
+                "type": "object",
+                "properties": {
+                    "package_line_id": {
+                        "type": "string"
+                    },
+                    "no_of_pieces": {
+                        "type": "integer"
+                    },
+                    "return_order_line_id": {
+                        "description": "return_order_line_id",
+                        "type": "string"
+                    },
+                    "line_qty": {
+                        "description": "line_qty",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnOrderLineQty"
+                        }
+                    }
+                },
+                "example": {
+                    "package_line_id": "",
+                    "no_of_pieces": ""
+                }
+            },
+            "ReturnPackageDimension": {
+                "title": "Root Type for ReturnPackageDimension",
+                "description": "Return Package Dimension",
+                "type": "object",
+                "properties": {
+                    "weight": {
+                        "type": "string"
+                    },
+                    "length": {
+                        "type": "string"
+                    },
+                    "height": {
+                        "type": "string"
+                    },
+                    "width": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "weight": "0",
+                    "length": "0",
+                    "height": "0",
+                    "width": "0"
+                }
+            },
+            "ReturnInnerPackage": {
+                "title": "Root Type for ReturnInnerPackage",
+                "description": "Return Inner Package",
+                "type": "object",
+                "properties": {
+                    "package_id": {
+                        "type": "string"
+                    },
+                    "tracking_number": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "package_id": "4124123",
+                    "tracking_number": "4124124"
+                }
+            },
+            "ReturnPackageReceive": {
+                "title": "Root Type for ReturnPackage",
+                "description": "Return Package",
+                "required": [
+                ],
+                "type": "object",
+                "properties": {
+                    "package_id": {
+                        "type": "string"
+                    },
+                    "weight": {
+                        "type": "string"
+                    },
+                    "uom": {
+                        "type": "string"
+                    },
+                    "tracking_number": {
+                        "type": "string"
+                    },
+                    "package_status": {
+                        "description": "package status",
+                        "type": "string"
+                    },
+                    "package_contains": {
+                        "description": "package contains",
+                        "type": "string"
+                    },
+                    "package_value": {
+                        "description": "package value",
+                        "type": "string"
+                    },
+                    "inner_package": {
+                        "description": "inner package",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnInnerPackage"
+                        }
+                    },
+                    "package_detail": {
+                        "description": "package_detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnPackageDetail"
+                        }
+                    },
+                    "return_shipment_number": {
+                        "description": "return shipment number",
+                        "type": "string"
+                    },
+                    "return_order_number": {
+                        "description": "return order number",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "package_id": "some text",
+                    "weight": "some text",
+                    "uom": "some text",
+                    "tracking_number": "some text",
+                    "package_status": "some text",
+                    "package_contains": "some text",
+                    "package_value": "some text",
+                    "inner_package": [
+                        {
+                            "package_id": "some text",
+                            "tracking_number": "some text"
+                        },
+                        {
+                            "package_id": "some text",
+                            "tracking_number": "some text"
+                        }
+                    ],
+                    "package_detail": [
+                        {
+                            "package_line_id": "some text",
+                            "no_of_pieces": 26,
+                            "lineQty": [
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text",
+                                    "disposition_code": "some text",
+                                    "action": "some text"
+                                },
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text",
+                                    "disposition_code": "some text",
+                                    "action": "some text"
+                                }
+                            ],
+                            "return_order_line_id": "some text"
+                        },
+                        {
+                            "package_line_id": "some text",
+                            "no_of_pieces": 21,
+                            "lineQty": [
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text",
+                                    "disposition_code": "some text",
+                                    "action": "some text"
+                                },
+                                {
+                                    "reference": "some text",
+                                    "status": "some text",
+                                    "return_reason": "some text",
+                                    "disposition_code": "some text",
+                                    "action": "some text"
+                                }
+                            ],
+                            "return_order_line_id": "some text"
+                        }
+                    ],
+                    "return_shipment_number": "some text",
+                    "return_order_number": "some text"
+                }
+            }
+        }
+    }
+}
