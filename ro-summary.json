@@ -1,0 +1,1113 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "ro-summary",
+        "version": "1.0.0",
+        "description": "ro summary"
+    },
+    "paths": {
+        "/roSummary/order": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReturnOrder"
+                            },
+                            "examples": {
+                                "return order example": {
+                                    "value": {
+                                        "return_order_number": "some text",
+                                        "tenant_code": "some text",
+                                        "organization_code": "some text",
+                                        "ext_sales_order_number": "some text",
+                                        "status": "some text",
+                                        "ext_sales_fulfilment_location": "some text",
+                                        "currency": "some text",
+                                        "is_exchange": true,
+                                        "immediate_refund": "some text",
+                                        "return_dates": {
+                                            "expected_arrival_date": "2018-01-17",
+                                            "collection_date": "2018-01-17",
+                                            "return_created_date": "2018-01-17"
+                                        },
+                                        "billing_address": {
+                                            "first_name": "some text",
+                                            "last_name": "some text",
+                                            "contact_no": "some text",
+                                            "contact_email": "some text",
+                                            "address_line1": "some text",
+                                            "address_line2": "some text",
+                                            "address_line3": "some text",
+                                            "address_line4": "some text",
+                                            "city": "some text",
+                                            "state": "some text",
+                                            "country": "some text",
+                                            "postal_code": "some text"
+                                        },
+                                        "return_payment_detail": [
+                                            {
+                                                "estimated_refund_amount": "some text",
+                                                "total_refund_amount": "some text",
+                                                "order_shipping_refund_amount": "some text",
+                                                "return_label_cost_amount": "some text",
+                                                "return_shipping_paid_amount": "some text",
+                                                "original_amount": "some text",
+                                                "discount_amount": "some text",
+                                                "tax_amount": "some text"
+                                            },
+                                            {
+                                                "estimated_refund_amount": "some text",
+                                                "total_refund_amount": "some text",
+                                                "order_shipping_refund_amount": "some text",
+                                                "return_label_cost_amount": "some text",
+                                                "return_shipping_paid_amount": "some text",
+                                                "original_amount": "some text",
+                                                "discount_amount": "some text",
+                                                "tax_amount": "some text"
+                                            }
+                                        ],
+                                        "return_fulfilment_options": [
+                                            {
+                                                "fulfillment_type": "some text",
+                                                "pickup_by": "some text",
+                                                "ship_by": "some text",
+                                                "source_pickup_from": "some text",
+                                                "drop_to_destination": "some text"
+                                            },
+                                            {
+                                                "fulfillment_type": "some text",
+                                                "pickup_by": "some text",
+                                                "ship_by": "some text",
+                                                "source_pickup_from": "some text",
+                                                "drop_to_destination": "some text"
+                                            }
+                                        ],
+                                        "return_payment_modes": [
+                                            {
+                                                "refund_payment_method": "some text",
+                                                "refund_amount": "some text"
+                                            },
+                                            {
+                                                "refund_payment_method": "some text",
+                                                "refund_amount": "some text"
+                                            }
+                                        ],
+                                        "return_order_line_details": [
+                                            {
+                                                "return_order_line_id": "some text",
+                                                "ext_sales_order_line_id": "some text",
+                                                "ext_sales_order_number": "some text",
+                                                "product_code": "some text",
+                                                "product_name": "some text",
+                                                "quantity_to_return": "some text",
+                                                "quantity_returned": "some text",
+                                                "quantity_sold": "some text",
+                                                "return_reason": "some text",
+                                                "line_refund_amount": "some text",
+                                                "DeliveryAddress": {
+                                                    "first_name": "some text",
+                                                    "last_name": "some text",
+                                                    "contact_no": "some text",
+                                                    "contact_email": "some text",
+                                                    "address_line1": "some text",
+                                                    "address_line2": "some text",
+                                                    "address_line3": "some text",
+                                                    "address_line4": "some text",
+                                                    "city": "some text",
+                                                    "state": "some text",
+                                                    "country": "some text",
+                                                    "postal_code": "some text"
+                                                }
+                                            },
+                                            {
+                                                "return_order_line_id": "some text",
+                                                "ext_sales_order_line_id": "some text",
+                                                "ext_sales_order_number": "some text",
+                                                "product_code": "some text",
+                                                "product_name": "some text",
+                                                "quantity_to_return": "some text",
+                                                "quantity_returned": "some text",
+                                                "quantity_sold": "some text",
+                                                "return_reason": "some text",
+                                                "line_refund_amount": "some text",
+                                                "DeliveryAddress": {
+                                                    "first_name": "some text",
+                                                    "last_name": "some text",
+                                                    "contact_no": "some text",
+                                                    "contact_email": "some text",
+                                                    "address_line1": "some text",
+                                                    "address_line2": "some text",
+                                                    "address_line3": "some text",
+                                                    "address_line4": "some text",
+                                                    "city": "some text",
+                                                    "state": "some text",
+                                                    "country": "some text",
+                                                    "postal_code": "some text"
+                                                }
+                                            }
+                                        ],
+                                        "return_package": [
+                                            {
+                                                "package_id": "some text",
+                                                "carrier": "some text",
+                                                "weight": "some text",
+                                                "uom": "some text",
+                                                "tracking_number": "some text",
+                                                "shipping_pdf_url": "some text",
+                                                "shipping_track_url": "some text",
+                                                "shipping_cost": "some text"
+                                            },
+                                            {
+                                                "package_id": "some text",
+                                                "carrier": "some text",
+                                                "weight": "some text",
+                                                "uom": "some text",
+                                                "tracking_number": "some text",
+                                                "shipping_pdf_url": "some text",
+                                                "shipping_track_url": "some text",
+                                                "shipping_cost": "some text"
+                                            }
+                                        ],
+                                        "refund_detail": [
+                                            {
+                                                "refund_type": "some text",
+                                                "refunded_on": "2018-01-17",
+                                                "status": "some text",
+                                                "credit_issued_amount": "some text",
+                                                "credit_spent_amount": "some text",
+                                                "merchant_invoice_amount": "some text",
+                                                "refund_to_shopper_amount": "some text",
+                                                "shopper_invoice_amount": "some text",
+                                                "ext_voucher_id": "some text",
+                                                "disposition_code": "some text"
+                                            },
+                                            {
+                                                "refund_type": "some text",
+                                                "refunded_on": "2018-01-17",
+                                                "status": "some text",
+                                                "credit_issued_amount": "some text",
+                                                "credit_spent_amount": "some text",
+                                                "merchant_invoice_amount": "some text",
+                                                "refund_to_shopper_amount": "some text",
+                                                "shopper_invoice_amount": "some text",
+                                                "ext_voucher_id": "some text",
+                                                "disposition_code": "some text"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReturnOrder"
+                                }
+                            }
+                        },
+                        "description": "Return created successfully"
+                    }
+                },
+                "operationId": "createRO",
+                "summary": "createRO",
+                "description": "create return order"
+            }
+        },
+        "/roSummary/returnOrder/{tenantCode}/{organizationCode}/{returnOrderNumber}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReturnOrder"
+                                }
+                            }
+                        },
+                        "description": "Return Order Detail"
+                    }
+                },
+                "operationId": "getReturnOrder",
+                "summary": "getReturnOrder",
+                "description": "Get Return Order"
+            },
+            "parameters": [
+                {
+                    "name": "tenantCode",
+                    "description": "tenantCode",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                },
+                {
+                    "name": "organizationCode",
+                    "description": "organisationCode",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                },
+                {
+                    "name": "returnOrderNumber",
+                    "description": "returnOrderNumber",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        },
+        "/roSummary/returnOrders/{tenantCode}/{organizationCode}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ReturnOrder"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Return Order List"
+                    }
+                },
+                "operationId": "getReturnOrders",
+                "summary": "getReturnOrders",
+                "description": "Get Return Orders"
+            },
+            "parameters": [
+                {
+                    "name": "tenantCode",
+                    "description": "tenantCode",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                },
+                {
+                    "name": "organizationCode",
+                    "description": "organisationCode",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                },
+                {
+                    "name": "Pageable",
+                    "description": "pageable",
+                    "schema": {
+
+                    },
+                    "in": "header"
+                }
+            ]
+        },
+        "/roSummary/shipment/receivePackage": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReturnPackage"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReturnPackage"
+                                }
+                            }
+                        },
+                        "description": "Receive Package update"
+                    }
+                },
+                "operationId": "receive",
+                "summary": "receive",
+                "description": "receive"
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ReturnOrderDates": {
+                "title": "Root Type for ReturnOrderDates",
+                "description": "Return Order Dates",
+                "type": "object",
+                "properties": {
+                    "expected_arrival_date": {
+                        "type": "string"
+                    },
+                    "collection_date": {
+                        "type": "string"
+                    },
+                    "return_created_date": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "expected_arrival_date": "2019-06-04",
+                    "collection_date": "2019-06-04",
+                    "return_created_date": "2019-06-04"
+                }
+            },
+            "ReturnBillingAddress": {
+                "title": "Root Type for ReturnBillingAddress",
+                "description": "Return Order Billing Address",
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "contact_no": {
+                        "type": "string"
+                    },
+                    "contact_email": {
+                        "type": "string"
+                    },
+                    "address_line1": {
+                        "type": "string"
+                    },
+                    "address_line2": {
+                        "type": "string"
+                    },
+                    "address_line3": {
+                        "type": "string"
+                    },
+                    "address_line4": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "postal_code": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "first_name": "Adelle",
+                    "last_name": "Lubowitz",
+                    "contact_no": "9856546465435",
+                    "contact_email": "jermaine.mayer@gmail.com",
+                    "address_line1": "016 Bernadine Junction",
+                    "address_line2": "016 Bernadine Junction",
+                    "address_line3": "016 Bernadine Junction",
+                    "address_line4": "016 Bernadine Junction",
+                    "city": "Port Ericamouth",
+                    "state": "Nebraska",
+                    "country": "Czech Republic",
+                    "postal_code": "18445"
+                }
+            },
+            "ReturnPaymentDetail": {
+                "title": "Root Type for ReturnPaymentDetail",
+                "description": "Return Payment Detail",
+                "type": "object",
+                "properties": {
+                    "estimated_refund_amount": {
+                        "type": "string"
+                    },
+                    "total_refund_amount": {
+                        "type": "string"
+                    },
+                    "order_shipping_refund_amount": {
+                        "type": "string"
+                    },
+                    "return_label_cost_amount": {
+                        "type": "string"
+                    },
+                    "return_shipping_paid_amount": {
+                        "type": "string"
+                    },
+                    "original_amount": {
+                        "type": "string"
+                    },
+                    "discount_amount": {
+                        "type": "string"
+                    },
+                    "tax_amount": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "estimated_refund_amount": "3000",
+                    "total_refund_amount": "3000",
+                    "order_shipping_refund_amount": "0",
+                    "return_label_cost_amount": "0",
+                    "return_shipping_paid_amount": "0",
+                    "original_amount": "3000",
+                    "discount_amount": "500",
+                    "tax_amount": "150"
+                }
+            },
+            "ReturnFulfilmentOptions": {
+                "title": "Root Type for ReturnFulfilmentOptions",
+                "description": "Return Order Fulfilment Options",
+                "type": "object",
+                "properties": {
+                    "fulfillment_type": {
+                        "type": "string"
+                    },
+                    "pickup_by": {
+                        "type": "string"
+                    },
+                    "ship_by": {
+                        "type": "string"
+                    },
+                    "source_pickup_from": {
+                        "$ref": "#/components/schemas/ReturnPickupAddress"
+                    },
+                    "drop_to_destination": {
+                        "$ref": "#/components/schemas/ReturnDeliveryAddress"
+                    }
+                },
+                "example": {
+                    "fulfillment_type": "SELF_SHIP",
+                    "pickup_by": "SELF",
+                    "ship_by": "CUSTOMER",
+                    "source_pickup_from": "CustomerLocation",
+                    "drop_to_destination": "Store1"
+                }
+            },
+            "ReturnPaymentModes": {
+                "title": "Root Type for ReturnPaymentModes",
+                "description": "Return Payment Modes",
+                "type": "object",
+                "properties": {
+                    "refund_payment_method": {
+                        "type": "string"
+                    },
+                    "refund_amount": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "refund_payment_method": "NETBANKING",
+                    "refund_amount": "2000"
+                }
+            },
+            "ReturnDeliveryAddress": {
+                "title": "Root Type for ReturnDeliveryAddress",
+                "description": "Return Delivery Address",
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "contact_no": {
+                        "type": "string"
+                    },
+                    "contact_email": {
+                        "type": "string"
+                    },
+                    "address_line1": {
+                        "type": "string"
+                    },
+                    "address_line2": {
+                        "type": "string"
+                    },
+                    "address_line3": {
+                        "type": "string"
+                    },
+                    "address_line4": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "postal_code": {
+                        "type": "string"
+                    },
+                    "node_type": {
+                        "description": "node type",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "first_name": "Adelle",
+                    "last_name": "Lubowitz",
+                    "contact_no": "",
+                    "contact_email": "jermaine.mayer@gmail.com",
+                    "address_line1": "016 Bernadine Junction",
+                    "address_line2": "016 Bernadine Junction",
+                    "address_line3": "016 Bernadine Junction",
+                    "address_line4": "016 Bernadine Junction",
+                    "city": "Port Ericamouth",
+                    "state": "Nebraska",
+                    "country": "Czech Republic",
+                    "postal_code": "18445"
+                }
+            },
+            "ReturnPackage": {
+                "title": "Root Type for ReturnPackage",
+                "description": "Return Package",
+                "type": "object",
+                "properties": {
+                    "package_id": {
+                        "type": "string"
+                    },
+                    "carrier": {
+                        "type": "string"
+                    },
+                    "weight": {
+                        "type": "string"
+                    },
+                    "uom": {
+                        "type": "string"
+                    },
+                    "tracking_number": {
+                        "type": "string"
+                    },
+                    "shipping_pdf_url": {
+                        "type": "string"
+                    },
+                    "shipping_track_url": {
+                        "type": "string"
+                    },
+                    "shipping_cost": {
+                        "type": "string"
+                    },
+                    "package_detail": {
+                        "description": "package detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnPackageDetail"
+                        }
+                    },
+                    "return_shipment_number": {
+                        "description": "return shipment number",
+                        "type": "string"
+                    },
+                    "return_order_number": {
+                        "description": "return order number",
+                        "type": "string"
+                    },
+                    "package_line_id": {
+                        "description": "package_line_id",
+                        "type": "string"
+                    },
+                    "package_status": {
+                        "description": "package_status",
+                        "type": "string"
+                    },
+                    "package_contains": {
+                        "description": "packageContains",
+                        "type": "string"
+                    },
+                    "package_value": {
+                        "description": "package_value",
+                        "type": "string"
+                    },
+                    "inner_package": {
+                        "$ref": "#/components/schemas/ReturnInnerPackage",
+                        "description": "inner_package"
+                    }
+                },
+                "example": {
+                    "package_id": "32321432",
+                    "carrier": "DHL",
+                    "weight": "0",
+                    "uom": "KG",
+                    "tracking_number": "47536284527464323",
+                    "shipping_pdf_url": "some_url",
+                    "shipping_track_url": "some_url",
+                    "shipping_cost": "0"
+                }
+            },
+            "ReturnRefundDetail": {
+                "title": "Root Type for ReturnRefundDetail",
+                "description": "Return Refund Detail",
+                "type": "object",
+                "properties": {
+                    "refund_type": {
+                        "type": "string"
+                    },
+                    "refunded_on": {
+                        "format": "date",
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "credit_issued_amount": {
+                        "type": "string"
+                    },
+                    "credit_spent_amount": {
+                        "type": "string"
+                    },
+                    "merchant_invoice_amount": {
+                        "type": "string"
+                    },
+                    "refund_to_shopper_amount": {
+                        "type": "string"
+                    },
+                    "shopper_invoice_amount": {
+                        "type": "string"
+                    },
+                    "ext_voucher_id": {
+                        "type": "string"
+                    },
+                    "disposition_code": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "refund_type": "instant_refund_voucher",
+                    "refunded_on": "2019-06-04",
+                    "status": "CAPTURED",
+                    "credit_issued_amount": "0",
+                    "credit_spent_amount": "0",
+                    "merchant_invoice_amount": "0",
+                    "refund_to_shopper_amount": "0",
+                    "shopper_invoice_amount": "0",
+                    "ext_voucher_id": "31234214",
+                    "disposition_code": "SOME_CODE"
+                }
+            },
+            "ReturnOrderLineDetail": {
+                "title": "Root Type for ReturnOrderLineDetail",
+                "description": "",
+                "required": [
+                ],
+                "type": "object",
+                "properties": {
+                    "return_order_line_id": {
+                        "type": "string"
+                    },
+                    "ext_sales_order_line_id": {
+                        "type": "string"
+                    },
+                    "ext_sales_order_number": {
+                        "type": "string"
+                    },
+                    "product_code": {
+                        "type": "string"
+                    },
+                    "product_name": {
+                        "type": "string"
+                    },
+                    "quantity_to_return": {
+                        "type": "string"
+                    },
+                    "quantity_returned": {
+                        "type": "string"
+                    },
+                    "quantity_sold": {
+                        "type": "string"
+                    },
+                    "return_reason": {
+                        "type": "string"
+                    },
+                    "line_refund_amount": {
+                        "type": "string"
+                    },
+                    "delivery_address": {
+                        "$ref": "#/components/schemas/ReturnDeliveryAddress",
+                        "description": "Delivery Address"
+                    },
+                    "line_qty": {
+                        "description": "line qty",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnOrderLineQty"
+                        }
+                    },
+                    "ext_return_order_line_id": {
+                        "description": "ext return order line id",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "return_order_line_id": "1",
+                    "ext_sales_order_line_id": "1",
+                    "ext_sales_order_number": "ONUM-11-2524665",
+                    "product_code": "44646846546496",
+                    "product_name": "FANATICS AUTHENTIC BRIAN HARTLINE CLEVELAND BROWNS GAME-USED #83 JERSEY VS SAN FRANCISCO 49ERS ON DECEMBER 13, 2015",
+                    "quantity_to_return": "2",
+                    "quantity_returned": "0",
+                    "quantity_sold": "3",
+                    "return_reason": "Received wrong item",
+                    "line_refund_amount": "0"
+                }
+            },
+            "ReturnOrder": {
+                "title": "Root Type for ReturnOrderHeader",
+                "description": "Return Order Header",
+                "required": [
+                    "return_order_number"
+                ],
+                "type": "object",
+                "properties": {
+                    "return_order_number": {
+                        "type": "string"
+                    },
+                    "tenant_code": {
+                        "type": "string"
+                    },
+                    "organization_code": {
+                        "type": "string"
+                    },
+                    "ext_sales_order_number": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "ext_sales_fulfilment_location": {
+                        "type": "string"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "is_exchange": {
+                        "type": "boolean"
+                    },
+                    "immediate_refund": {
+                        "type": "string"
+                    },
+                    "return_dates": {
+                        "$ref": "#/components/schemas/ReturnOrderDates",
+                        "description": "Return Dates"
+                    },
+                    "billing_address": {
+                        "$ref": "#/components/schemas/ReturnBillingAddress",
+                        "description": "Billing address"
+                    },
+                    "return_payment_detail": {
+                        "$ref": "#/components/schemas/ReturnPaymentDetail",
+                        "description": "Return Payment Details"
+                    },
+                    "return_fulfilment_options": {
+                        "description": "Return Fulfilment Options",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnFulfilmentOptions"
+                        }
+                    },
+                    "return_payment_modes": {
+                        "description": "Return Payment Modes",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnPaymentModes"
+                        }
+                    },
+                    "return_package": {
+                        "description": "Return Package",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnPackage"
+                        }
+                    },
+                    "refund_detail": {
+                        "description": "Refund Details",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnRefundDetail"
+                        }
+                    },
+                    "return_order_line_items": {
+                        "description": "return order line items",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnOrderLineDetail"
+                        }
+                    }
+                },
+                "example": {
+                    "return_order_number": "758228",
+                    "tenant_code": "TJ",
+                    "organization_code": "TJ1",
+                    "ext_sales_order_number": "T1000045796",
+                    "status": "created",
+                    "ext_sales_fulfilment_location": "Store1",
+                    "currency": "INR",
+                    "is_exchange": false,
+                    "immediate_refund": "N",
+                    "return_dates": {
+                        "expected_arrival_date": "2019-06-04",
+                        "collection_date": "2019-06-04",
+                        "return_created_date": "2019-06-04"
+                    },
+                    "billing_address": {
+                        "first_name": "Adelle",
+                        "last_name": "Lubowitz",
+                        "contact_no": "9856546465435",
+                        "contact_email": "jermaine.mayer@gmail.com",
+                        "address_line1": "016 Bernadine Junction",
+                        "address_line2": "016 Bernadine Junction",
+                        "address_line3": "016 Bernadine Junction",
+                        "address_line4": "016 Bernadine Junction",
+                        "city": "Port Ericamouth",
+                        "state": "Nebraska",
+                        "country": "Czech Republic",
+                        "postal_code": "18445"
+                    },
+                    "return_payment_detail": {
+                        "estimated_refund_amount": "3000",
+                        "total_refund_amount": "3000",
+                        "order_shipping_refund_amount": "0",
+                        "return_label_cost_amount": "0",
+                        "return_shipping_paid_amount": "0",
+                        "original_amount": "3000",
+                        "discount_amount": "500",
+                        "tax_amount": "150"
+                    },
+                    "return_fulfilment_options": {
+                        "fulfillment_type": "SELF_SHIP",
+                        "pickup_by": "",
+                        "ship_by": "CUSTOMER",
+                        "source_pickup_from": "",
+                        "drop_to_destination": "Store1"
+                    },
+                    "return_payment_modes": [
+                        {
+                            "refund_payment_method": "NETBANKING",
+                            "refund_amount": "2000"
+                        },
+                        {
+                            "refund_payment_method": "GIFTCARD",
+                            "refund_amount": "1000"
+                        }
+                    ],
+                    "return_order_line_details": [
+                        {
+                            "return_order_line_id": "1",
+                            "ext_sales_order_line_id": "1",
+                            "ext_sales_order_number": "ONUM-11-2524665",
+                            "product_code": "44646846546496",
+                            "product_name": "FANATICS AUTHENTIC BRIAN HARTLINE CLEVELAND BROWNS GAME-USED #83 JERSEY VS SAN FRANCISCO 49ERS ON DECEMBER 13, 2015",
+                            "quantity_to_return": "2",
+                            "quantity_returned": "0",
+                            "quantity_sold": "3",
+                            "return_reason": "Received wrong item",
+                            "line_refund_amount": "0",
+                            "delivery_address": {
+                                "first_name": "Adelle",
+                                "last_name": "Lubowitz",
+                                "contact_no": "",
+                                "contact_email": "jermaine.mayer@gmail.com",
+                                "address_line1": "016 Bernadine Junction",
+                                "address_line2": "016 Bernadine Junction",
+                                "address_line3": "016 Bernadine Junction",
+                                "address_line4": "016 Bernadine Junction",
+                                "city": "Port Ericamouth",
+                                "state": "Nebraska",
+                                "country": "Czech Republic",
+                                "postal_code": "18445"
+                            }
+                        }
+                    ],
+                    "return_package": [
+                        {
+                            "package_id": "32321432",
+                            "carrier": "DHL",
+                            "weight": "0",
+                            "uom": "KG",
+                            "tracking_number": "47536284527464323",
+                            "shipping_pdf_url": "some_url",
+                            "shipping_track_url": "some_url",
+                            "shipping_cost": "0"
+                        }
+                    ],
+                    "refund_detail": [
+                        {
+                            "refund_type": "instant_refund_voucher",
+                            "refunded_on": "2019-06-04",
+                            "status": "CAPTURED",
+                            "credit_issued_amount": "0",
+                            "credit_spent_amount": "0",
+                            "merchant_invoice_amount": "0",
+                            "refund_to_shopper_amount": "0",
+                            "shopper_invoice_amount": "0",
+                            "ext_voucher_id": "31234214",
+                            "disposition_code": "SOME_CODE"
+                        }
+                    ]
+                }
+            },
+            "ReturnOrderLineQty": {
+                "title": "Root Type for ReturnOrderLineQty",
+                "description": "Return OrderLine Qty",
+                "type": "object",
+                "properties": {
+                    "reference": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "return_reason": {
+                        "type": "string"
+                    },
+                    "reason_code": {
+                        "description": "reason_code",
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "reference": "ADE565fG",
+                    "status": "RETURN_CREATED",
+                    "return_reason": "Received wrong item"
+                }
+            },
+            "ReturnPackageDetail": {
+                "description": "ReturnPackageDetail",
+                "type": "object",
+                "properties": {
+                    "line_qty": {
+                        "description": "line qty",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReturnOrderLineQty"
+                        }
+                    },
+                    "no_of_pieces": {
+                        "description": "no of pieces",
+                        "type": "string"
+                    },
+                    "package_line_id": {
+                        "description": "package line id",
+                        "type": "string"
+                    },
+                    "return_order_line_id": {
+                        "description": "return order line id",
+                        "type": "string"
+                    },
+                    "return_package_dimension": {
+                        "$ref": "#/components/schemas/ReturnPackageDimension",
+                        "description": "return_package_dimension"
+                    }
+                }
+            },
+            "ReturnInnerPackage": {
+                "description": "ReturnInnerPackage",
+                "type": "object",
+                "properties": {
+                    "package_id": {
+                        "description": "package_id",
+                        "type": "string"
+                    },
+                    "tracking_number": {
+                        "description": "tracking_number",
+                        "type": "string"
+                    }
+                }
+            },
+            "ReturnPackageDimension": {
+                "description": "ReturnPackageDimension",
+                "type": "object",
+                "properties": {
+                    "weight": {
+                        "description": "weight",
+                        "type": "string"
+                    },
+                    "length": {
+                        "description": "length",
+                        "type": "string"
+                    },
+                    "height": {
+                        "description": "height",
+                        "type": "string"
+                    },
+                    "width": {
+                        "description": "width",
+                        "type": "string"
+                    }
+                }
+            },
+            "ReturnPickupAddress": {
+                "title": "Root Type for ReturnBillingAddress",
+                "description": "Return Order Billing Address",
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "contact_no": {
+                        "type": "string"
+                    },
+                    "contact_email": {
+                        "type": "string"
+                    },
+                    "address_line1": {
+                        "type": "string"
+                    },
+                    "address_line2": {
+                        "type": "string"
+                    },
+                    "address_line3": {
+                        "type": "string"
+                    },
+                    "address_line4": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "postal_code": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "first_name": "Adelle",
+                    "last_name": "Lubowitz",
+                    "contact_no": "9856546465435",
+                    "contact_email": "jermaine.mayer@gmail.com",
+                    "address_line1": "016 Bernadine Junction",
+                    "address_line2": "016 Bernadine Junction",
+                    "address_line3": "016 Bernadine Junction",
+                    "address_line4": "016 Bernadine Junction",
+                    "city": "Port Ericamouth",
+                    "state": "Nebraska",
+                    "country": "Czech Republic",
+                    "postal_code": "18445"
+                }
+            }
+        }
+    }
+}
